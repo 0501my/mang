@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" name="f">
+    <textarea name="textare" id="textare" cols="30" rows="10" onkeydown="setTextArea()"></textarea>
+</form>
+<script>
+   const chuoi = "BẠN THẬT NGỐC NGHẾCH!"
+   let  cuphap = '';
+   function setTextArea() {
+       let area = document.f.textare.value;
+       let dodai = area.length;
+       if (dodai>0){
+           for (let i=1;i<=dodai;i++){
+               cuphap+=chuoi[i-1];
+               console.log(chuoi[i-1]);
+               if (i==22){
+                   cuphap = "";
+                   document.f.textare.value = "";
+               }
+           }
+           document.f.textare.value = cuphap;
+           cuphap = ""
+           let stime = setTimeout("setTextArea()",2)
+       }
+   }
+
+</script>
+
+</body>
+
+</html>

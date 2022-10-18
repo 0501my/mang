@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<input type="button" value="Bài 1" onclick="bai1()">Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. Chương-->
+<!--trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.<br/>-->
+<!--<input type="button" value="Bài 2" onclick="bai2()">Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.-->
+<!--Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.<br/>-->
+<!--<input type="button" value="Bài 3" onclick="bai3()">Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn-->
+<!--nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.</br>-->
+<!--<input type="button" value="Bài 4" onclick="bai4()">Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược-->
+<!--các phần tử trong mảng đó.<br/>-->
+<!--<input type="button" value="Bài 5" onclick="bai5()">Viết chương trình đếm số nguyên âm trong một chuỗi <br/>-->
+<!--<input type="button" value="Bài 6" onclick="bai6()">iết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần-->
+<!--tử, nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên-->
+<!--thì in ra "V is in the array" còn lại in ra "V is not in the array".<br/>-->
+<!--<input type="button" value="Bài 7" onclick="bai7()">Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần-->
+<!--tử, nhập/tạo phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V-->
+<!--khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng-->
+<!--của mảng)<br/>-->
+<!--<input type="button" value="Bài 8" onclick="bai8()">Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần-->
+<!--tử. Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.<br/>-->
+<input type="button" value="Bài 9" onclick="bai9()">Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử,
+gọi là mảng a và b. Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên. Chương trình sẽ lưu các phần tử được nối
+từ hai mảng b và a vào mảng c. Hiển thị mảng c.<br/>
+
+<body>
+<script>
+    function bai1() {
+        let mang = []
+        let mangsolon = []
+        for (let i = 0; i < 10; i++) {
+            mang[i] = Number(prompt('nhập số'));
+        }
+        document.write("mảng = [" + mang + "]<br>")
+        for (let i = 0; i < mang.length; i++) {
+            if (mang[i] >= 10) {
+                mangsolon.push(mang[i])
+            }
+        }
+        document.write("Các phần tử >=10 trong mảng[" + mangsolon + "]<br/>")
+    }
+
+
+    function bai2() {
+        let mang = []
+        let max = 0
+        let vitri = 0
+
+        for (let i = 0; i < 10; i++) {
+            mang[i] = +prompt("nhập các số khác nhau")
+        }
+        document.write("mảng số là: " + mang)
+        for (let i = 0; i < mang.length; i++) {
+            if (max < mang[i]) {
+                max = mang[i]
+                vitri = i
+            }
+        }
+        document.write("Phần tử lớn nhất trong mảng " + max + " tại vị trí: " + vitri)
+    }
+
+    function bai3() {
+        let mangso = []
+        let max = 0, vitri = 0, tongTb = 0
+
+        for (let i = 0; i < 10; i++) {
+            mangso[i] = Number(prompt("Nhập số vào mảng"))
+        }
+        document.write("mangso = [" + mangso + "]<br>")
+
+        for (let i = 0; i < mangso.length; i++) {
+            if (max < mangso[i]) {
+                max = mangso[i]
+                vitri = i
+            }
+            tongTb += mangso[i]
+        }
+        tongTb = tongTb / mangso.length
+
+        document.write("Phần tử lớn nhất trong mảng là " + max + " tại vị trí mangso[" + vitri + "]<br>")
+        document.write("Tổng trung bình của các số là " + tongTb)
+    }
+
+    function bai4() {
+        let mang = []
+        for (let i = 0; i < 10; i++) {
+            mang[i] = Number(prompt("nhập số"));
+        }
+        document.write("mảng số = [" + mang + "]<br>")
+        document.write("mang = [" + mang.reverse() + "]<br>")
+    }
+
+    function bai5() {
+        let mangso = [];
+        let mangsoam = [];
+        for (let i = 0; i < 10; i++) {
+            mangso[i] = Number(prompt("nhập số "))
+            if (mangso[i] < 0) {
+                mangsoam.push(mangso[i])
+            }
+        }
+        document.write("mangso=[" + mangso + "]<br>")
+        document.write("Các mảng số âm gồm" + mangsoam.length + "phần tử soam = [" + mangsoam + "]<br>")
+    }
+
+    function bai6() {
+        let mang = []
+        let a = true
+        for (let i = 0; i < 10; i++) {
+            mang[i] = prompt("nhập số")
+            if (mang[i] == "V") {
+                a = false
+            }
+        }
+        document.write("mảng = [" + mang + "]<br>")
+        if (a == false) {
+            document.write("V is in the array");
+        } else {
+            document.write("V is in the array");
+        }
+    }
+
+    function bai7() {
+        let mang = []
+        let a = true
+        let mangnew = []
+
+        for (let i = 0; i < 10; i++) {
+            mang[i] = prompt("Nhập số vào mảng")
+            if (mang[i] == "V") {
+                a = false
+            }
+
+            if (mang[i] != "V") {
+                mangnew.push(mang[i])
+            }
+        }
+        document.write("Mang = [" + mang + "]<br>")
+        if (a == false) {
+            document.write("Đã xóa phần tử V. Mảng = [" + mangnew + "]<br>")
+        }
+    }
+
+    function bai8() {
+        let mang = []
+        let min = 0
+        for (let i = 0; i < 10; i++) {
+            mang[i] = prompt("nhập số")
+        }
+        document.write("mảng là: " + [mang] + "<br>")
+        for (let i = 0; i < mang.length; i++) {
+            for (let j = i + 1; j < mang.length; j++) {
+                if (mang[i] < mang[j]) {
+                    min = mang[i]
+                    mang[i] = mang[j]
+                    mang[j] = min
+                }
+            }
+        }
+        document.write("sắp xếp từ lớn đến bé mảng=[" + mang + "]<br>")
+    }
+
+
+    function bai9() {
+        let mang1 = []
+        let mang2 = []
+        let mang3 = []
+        for (let i = 0; i < 10; i++) {
+            let a = Number(prompt("nhập số"))
+            mang1.push(a)
+        }
+        for (let j = 0; j < 10; j++) {
+            let b = Number(prompt("nhập số"))
+            mang2.push(b)
+        }
+        document.write("Mảng 1 = [" + mang1 + "]" + "<br>")
+        document.write("Mảng 2 = [" + mang2 + "] <br>")
+
+        mang3 = mang2.concat(mang1);
+        document.write("Mảng 3=[" + mang3 + "]<br>")
+    }
+</script>
+</body>
+</html>
